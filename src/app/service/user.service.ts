@@ -24,7 +24,8 @@ private readonly apiUrl:string ='https://randomuser.me/api';
 
   //   fetch users
   getUser(uuid: string): Observable<any>{
-    return this.http.get<any>(`${this.apiUrl}/?uuid=${uuid}]}`)
+    return this.http.get<any>(`${this.apiUrl}/?uuid=${uuid}]}`).pipe(
+      map(response => this.processResponse(response)))
   }
   //   fetch one user using uuid
 
